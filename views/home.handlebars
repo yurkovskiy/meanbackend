@@ -1,10 +1,18 @@
 <h3>The Express Server Example</h3>
-<ul>
+<style type="text/css">
+	td {
+		font-family: Verdana;
+		font-size: 16px;
+		border: 1px solid #000;
+		border-collapse: collapse;
+	}
+</style>
+<table border="1" cellpadding="5" cellspacing="5">
 	{{#each data}}
-	<li>
-		<span>{{id}}</span>
-		<span>{{email}}</span>
-		<span>{{username}}</span>
-	</li>
+	<tr>
+		<td>{{id}}</td>
+		<td>{{email}}</td>
+		<td>{{username}}</td>
+	</tr>
 	{{/each}}
-</ul>
+</table>
