@@ -1,5 +1,6 @@
 // express server
 'use strict';
+let mysql = require("mysql");
 let express = require("express");
 let app = express();
 let handlebars = require("express-handlebars")
@@ -10,7 +11,18 @@ app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
 app.get('/', function(req, res) {
-	res.render('home');
+	// mysql connect and query
+	let conn = mysql.createConnection({
+		host: 'localhost',
+		user: 'dtapi',
+		password: 'dtapi',
+		database: 'dtapi2',
+		charset: 'utf8'
+	});
+
+	conn.query('SELECT * FROM users ORDER BY id', function(err, rows) {
+		res.render('home', {data : rows});
+	});
 });
 
 
